@@ -4,6 +4,8 @@
 - [x] Updated README with installation, usage, and reproduction instructions
 - [x] Base 10/25/50-hour training notebook
 - [x] Continuation-training code used for the 100K stage
+- [x] 200K manifest reconstruction and data-audit code
+- [x] Complete 200K warm-start continuation-training code
 - [x] Final 200K evaluation script
 - [x] Single-audio transcription script
 - [x] Final metrics in JSON and CSV form
@@ -14,7 +16,7 @@
 - [x] Presentation deck
 - [ ] Publish the final checkpoint using GitHub Releases, Git LFS, or another approved host
 - [ ] Replace the placeholders in `MODEL_ARTIFACTS.md` with the checkpoint URL and SHA-256
-- [ ] Create/select the GitHub repository and push this folder
-- [ ] Open the GitHub repository in a private/incognito window to verify every file is accessible
+- [x] Create/select the GitHub repository and push this folder
+- [x] Verify the public repository tree and every uploaded project file
 - [ ] Add the GitHub repository URL to the submission form
 
