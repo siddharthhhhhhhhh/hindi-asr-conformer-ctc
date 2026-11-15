@@ -49,6 +49,8 @@ notebooks/
   01_base_training_10h_25h_50h.ipynb
 scripts/
   kaggle_continue_training_100k.py
+  prepare_kaggle_200k_manifests.py
+  train_200k_warmstart.py
   evaluate_hindi_asr_200k.py
   transcribe_hindi_audio.py
 results/
@@ -65,6 +67,38 @@ docs/
 The notebook documents the controlled 10/25/50-hour experiments. The larger
 100K and 200K stages were warm-start continuations from saved checkpoints. The
 final evaluation and single-file transcription scripts use the 200K checkpoint.
+
+## Train the 200K stage on Kaggle
+
+Attach these three private Kaggle datasets to a GPU notebook:
+
+```text
+siddharthroyjj/hindi-asr-100k-private
+siddharthroyjj/hindi-asr-extra-100k-private
+siddharthroyjj/epoch-12
+```
+
+Then run:
+
+```bash
+python scripts/prepare_kaggle_200k_manifests.py
+python scripts/train_200k_warmstart.py
+```
+
+The preparation script indexes both read-only audio inputs, reconstructs the
+200,000-record training manifest, and rechecks duplicate rows and speaker
+overlap. The training script loads the 100K epoch-12 weights, uses the same
+4.5-million-parameter Conformer-CTC architecture, and saves a checkpoint plus a
+downloadable ZIP after every phase epoch. It defaults to one roughly two-hour
+epoch per invocation to reduce the risk of losing work to a notebook timeout.
+Attach the previous epoch bundle before the next run; the latest
+`conformer_200k_last.pt` is detected automatically.
+
+The planned configuration is four phase epochs, batch size 8, four-step
+gradient accumulation (effective batch 32), AdamW, mixed precision, gradient
+clipping, SpecAugment, and a `3e-5` peak learning rate with cosine decay. The
+submitted final checkpoint was the best model available after three completed
+phase epochs.
 
 ## Data preparation
 
