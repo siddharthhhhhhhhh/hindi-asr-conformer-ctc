@@ -1,0 +1,18 @@
+{
+  "model": "compact_conformer_ctc_200k",
+  "training_recordings": 200000,
+  "training_audio_hours": 381.88,
+  "training_speakers": 2060,
+  "checkpoint_phase_epoch": 3,
+  "test_recordings": 5897,
+  "test_audio_hours": 9.495,
+  "test_speakers": 132,
+  "test_loss": 0.9563,
+  "test_cer": 0.2280,
+  "test_wer": 0.5371,
+  "evaluation_minutes": 1.09,
+  "real_time_factor": 0.0019,
+  "decoder": "greedy_ctc",
+  "external_language_model": false
+}
+

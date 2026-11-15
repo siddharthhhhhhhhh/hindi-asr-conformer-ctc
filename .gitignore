@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+data/
+audio/
+checkpoints/
+*.pt
+*.pth
+*.tar
+*.zip
+test_200k_predictions.csv
+

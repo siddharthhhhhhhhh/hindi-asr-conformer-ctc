@@ -1,0 +1,5 @@
+reference,prediction,observation
+"ठीक है सर","ओठीक है सर","One extra initial character"
+"जहाँ पे शंकर भगवान का मन्दिर करने रोज जाते हैं लोग रोज पूजा करते हैं","जहाँ पेर संकर भवान का मनदिर करने रो जाते हैं लोग रोत पूजा करते हैं","Phonetically close with spelling and deletion errors"
+"हाँ होगा","हाँ होगा","Exact prediction"
+
